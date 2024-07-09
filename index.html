@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Check-In Prototype</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" id="welcomeScreen">
+        <h1>Welcome to [Clinic Name]</h1>
+        <button onclick="showScreen('checkInScreen')">Check-In</button>
+        <button>View Appointments</button>
+        <button onclick="changeLanguage()">Language Selection</button>
+    </div>
+    
+    <div class="container" id="checkInScreen" style="display: none;">
+        <h2>Enter Your Appointment Code or ID</h2>
+        <input type="text" id="appointmentCode" placeholder="Appointment Code/ID">
+        <button onclick="submitCode()">Submit</button>
+        <button onclick="showScreen('welcomeScreen')">Back</button>
+    </div>
+    
+    <div class="container" id="gpsScreen" style="display: none;">
+        <h2>Your location has been confirmed.</h2>
+        <p>We have notified the clinic of your arrival.</p>
+        <div class="spinner"></div>
+        <button onclick="showScreen('confirmationScreen')">Continue</button>
+    </div>
+    
+    <div class="container" id="confirmationScreen" style="display: none;">
+        <h2>Check-In Successful!</h2>
+        <p>Estimated Wait Time: <span id="waitTime">15</span> minutes</p>
+        <p>Please wait in the designated area.</p>
+        <button>View Queue Status</button>
+        <button onclick="cancelCheckIn()">Cancel Check-In</button>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
